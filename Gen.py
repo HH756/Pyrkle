@@ -1,4 +1,3 @@
-import numpy as np
 import hashlib
 numNodes = 4
 x = 0
@@ -24,5 +23,13 @@ while layer1HalfLength > y:
     layer1LastHalfHash = layer1Hashes[int(layer1HalfLength+y)]
     y += 1
     layer1LastHalf.append(layer1LastHalfHash)
-print(layer1LastHalf)
-print(layer1FirstHalf)
+# Getting layer2 of the first half of layer 1
+layer1FirstHalfConcat = ''.join(layer1FirstHalf)
+layer2FirstHalf1 = hashlib.md5(layer1FirstHalfConcat.encode('utf-8')).hexdigest()
+print(layer1FirstHalfConcat)
+print(layer2FirstHalf1)
+# Getting layer2 of the last half of layer 1
+layer1LastHalfConcat = ''.join(layer1LastHalf)
+layer2LastHalf1 = hashlib.md5(layer1LastHalfConcat.encode('utf-8')).hexdigest()
+print(layer1LastHalfConcat)
+print(layer2LastHalf1)
