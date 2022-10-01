@@ -12,7 +12,6 @@ while x < numNodes:
         Cnode = hasher.hexdigest() 
         layer1Hashes.append(Cnode)
     x += 1
-print(layer1Hashes)
 # Getting First Half of Hashed Files
 layer1HashesLength = len(layer1Hashes)
 layer1HalfLength = layer1HashesLength/2
@@ -26,10 +25,11 @@ while layer1HalfLength > y:
 # Getting layer2 of the first half of layer 1
 layer1FirstHalfConcat = ''.join(layer1FirstHalf)
 layer2FirstHalf1 = hashlib.md5(layer1FirstHalfConcat.encode('utf-8')).hexdigest()
-print(layer1FirstHalfConcat)
-print(layer2FirstHalf1)
 # Getting layer2 of the last half of layer 1
 layer1LastHalfConcat = ''.join(layer1LastHalf)
 layer2LastHalf1 = hashlib.md5(layer1LastHalfConcat.encode('utf-8')).hexdigest()
-print(layer1LastHalfConcat)
-print(layer2LastHalf1)
+# master node hashing
+layer2Hash = ''.join([layer2FirstHalf1,layer2LastHalf1])
+masternode = hashlib.md5((''.join([layer2FirstHalf1,layer2LastHalf1])).encode('utf-8')).hexdigest()
+print(masternode)
+
