@@ -2,7 +2,7 @@ import hashlib
 numNodes = 4
 x = 0
 y = 0
-hasher = hashlib.md5()
+hasher = hashlib.sha256()
 layer1Hashes = []
 # Hash all given files
 while x < numNodes:
@@ -24,12 +24,12 @@ while layer1HalfLength > y:
     layer1LastHalf.append(layer1LastHalfHash)
 # Getting layer2 of the first half of layer 1
 layer1FirstHalfConcat = ''.join(layer1FirstHalf)
-layer2FirstHalf1 = hashlib.md5(layer1FirstHalfConcat.encode('utf-8')).hexdigest()
+layer2FirstHalf1 = hashlib.sha256(layer1FirstHalfConcat.encode('utf-8')).hexdigest()
 # Getting layer2 of the last half of layer 1
 layer1LastHalfConcat = ''.join(layer1LastHalf)
-layer2LastHalf1 = hashlib.md5(layer1LastHalfConcat.encode('utf-8')).hexdigest()
+layer2LastHalf1 = hashlib.sha256(layer1LastHalfConcat.encode('utf-8')).hexdigest()
 # master node hashing
 layer2Hash = ''.join([layer2FirstHalf1,layer2LastHalf1])
-masternode = hashlib.md5((''.join([layer2FirstHalf1,layer2LastHalf1])).encode('utf-8')).hexdigest()
+masternode = hashlib.sha256((''.join([layer2FirstHalf1,layer2LastHalf1])).encode('utf-8')).hexdigest()
 print(masternode)
 
