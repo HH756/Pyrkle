@@ -3,6 +3,7 @@ A program that returns the Merkle tree of n files.
 
 ### Dependencies 
 - Hashlib
+- os
 
 ## Merkle Tree?
 <img src='https://i.imgur.com/f7h1MEz.png'>
