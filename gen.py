@@ -36,12 +36,11 @@ if len(workingL) == 0:
 # Hash layer 2
 for xp in workingL:
     if (len(xp)) == 64:
+        print('true')
         buf = xp.encode()
         hasher.update(buf)
         nodae = hasher.hexdigest()
         workingL.append(nodae)
-    elif (len(xp)) == 32:
-        workingL.append(xp)
+    else:
+        exit
 print(workingL)
-
-
