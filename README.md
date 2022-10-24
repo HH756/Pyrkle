@@ -1,8 +1,9 @@
 # Pyrkle
 A program that returns the Merkle tree of n files.
 
-### Dependencies 
-- Hashlib
+### Python needed imports
+- Hashlib (For performing the hash)
+- os (For getting the files that are to be hashed)
 
 ## Merkle Tree?
 <img src='https://i.imgur.com/f7h1MEz.png'>
